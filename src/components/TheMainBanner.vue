@@ -15,11 +15,14 @@
 
 <style scoped lang="scss">
 .banner__main {
-  background-image: url(/img/slide1.png);
+  background-image: url(/img/baner_2.png);
   height: 90vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .banner__main__title {
   font-size: 3rem;
@@ -39,14 +42,13 @@
 .banner__main-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   width: 600px;
-  margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  //background-color: rgba(0, 0, 0, 0.5);
   padding: 25px;
+  margin-right: 50px;
   border-radius: 10px;
-  top: 25%;
 }
 
 </style>
