@@ -1,0 +1,24 @@
+{
+  "offers": [
+    {
+      "image": "/img/wesele.jpg",
+      "title": "Wesele",
+      "description": "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat."
+    },
+    {
+      "image": "/img/poprawiny.jpg",
+      "title": "Poprawiny",
+      "description": "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat."
+    },
+    {
+      "image": "/img/urodziny.jpg",
+      "title": "Urodziny",
+      "description": "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat."
+    },
+    {
+      "image": "/img/imprezy.jpg",
+      "title": "Imprezy Okazjonalne",
+      "description": "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat."
+    }
+  ]
+}
