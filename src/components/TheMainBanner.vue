@@ -1,12 +1,14 @@
 <template>
-<section class="container__fullwidth banner__main">
-  <div class="banner__main-content">
-      <h1>
-          <span class="banner__main__title">Zespół muzyczny Leplis</span>
+  <section class="container__fullwidth banner__main">
+    <div class="banner__main-content">
+      <h1 class="banner__main__title">
+        Zespół muzyczny Leplis
       </h1>
-    <p class="banner__main__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec aliquam aliquam, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, nisl nec aliquam aliquam, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet lorem.</p>
-  </div>
-</section>
+      <p class="banner__main__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec
+        aliquam aliquam, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, nisl nec aliquam
+        aliquam, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet lorem.</p>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -24,12 +26,14 @@
   align-items: center;
   justify-content: flex-end;
 }
+
 .banner__main__title {
   font-size: 3rem;
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 0;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .banner__main__text {
@@ -37,8 +41,8 @@
   font-weight: 400;
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 0;
 }
+
 .banner__main-content {
   display: flex;
   flex-direction: column;
@@ -47,7 +51,7 @@
   width: 600px;
   //background-color: rgba(0, 0, 0, 0.5);
   padding: 25px;
-  margin-right: 50px;
+  margin-right: 15%;
   border-radius: 10px;
 }
 

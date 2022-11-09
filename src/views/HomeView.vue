@@ -4,6 +4,7 @@ import TheHeader from "@/components/TheHeader.vue";
 import TheMainBanner from "@/components/TheMainBanner.vue";
 import TheContent from "@/components/TheContent.vue";
 import TheAboutUs from "@/components/TheAboutUs.vue";
+import TheContactForm from "@/components/TheContactForm.vue";
 
 </script>
 
@@ -12,6 +13,7 @@ import TheAboutUs from "@/components/TheAboutUs.vue";
   <TheMainBanner />
   <TheContent />
   <TheAboutUs />
+  <TheContactForm />
 </template>
 
 <style lang="scss">
