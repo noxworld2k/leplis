@@ -213,7 +213,7 @@ const togglePlaylistDone = () => {
   text-decoration: none;
   padding: 10px;
   background-color: #0031d4;
-
+  border-radius: 5px;
   &:hover {
     color: #041c6c;
   }
