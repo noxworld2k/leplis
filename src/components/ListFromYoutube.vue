@@ -3,9 +3,9 @@
   <div class="container">
     <form class="form__box">
       <button
-          class="btn__toggle"
-          v-if="!playlistDone"
-          @click.prevent="togglePlaylistDone"
+        class="btn__toggle"
+        v-if="!playlistDone"
+        @click.prevent="togglePlaylistDone"
       >
         Wybrałeś własne kawałki ?
       </button>
@@ -13,50 +13,58 @@
         Wybierz playlistę
       </button>
       <div
-          class="playlist"
-          v-for="item in playListData"
-          :key="item.title"
-          v-if="!playlistDone"
+        class="playlist"
+        v-for="item in playListData"
+        :key="item.title"
+        v-if="!playlistDone"
       >
-        <div class="playlist__item" @click="addSongToPlaylist">
-          <input
-              type="checkbox"
-              :value="item.title"
-              @click="addSongToPlaylist"
-          />
-          {{ item.title }} -
-          <a class="button-link"
-             :key="item.title"
-             :href="`https://www.youtube.com/watch?v=${item.videoId}`"
-             target="_blank"
-          >Przesłuchaj kawałek
+        <div class="playlist__item">
+          <div>
+            <label class="container__input">
+              <input
+                type="checkbox"
+                :value="item.title"
+                @click="addSongToPlaylist"
+              />
+              {{ item.title }}
+              <span class="checkmark">
+              </span>
+            </label>
+
+          </div>
+          <a
+            class="button-link"
+            :key="item.title"
+            :href="`https://www.youtube.com/watch?v=${item.videoId}`"
+            target="_blank"
+            >Przesłuchaj kawałek
           </a>
         </div>
       </div>
       <div class="form__user-data" v-else>
         <label for="name">Imię</label>
         <input
-            type="text"
-            name="name"
-            placeholder="Podaj swoję imię"
-            v-model="userData.name"
-            required
+          type="text"
+          name="name"
+          placeholder="Podaj swoję imię"
+          v-model="userData.name"
+          required
         />
         <label for="email">Email</label>
         <input
-            type="email"
-            name="email"
-            placeholder="Podaj swój email"
-            v-model="userData.email"
-            required
+          type="email"
+          name="email"
+          placeholder="Podaj swój email"
+          v-model="userData.email"
+          required
         />
         <label for="date">Wybierz datę uroczystości</label>
-        <input type="date" name="date" v-model="userData.date"/>
+        <input type="date" name="date" v-model="userData.date" />
         <label for="message">Napisz nam czego oczekujesz</label>
         <textarea
-            name="message"
-            placeholder="Napisz nam czego oczekujesz"
-            v-model="userData.message"
+          name="message"
+          placeholder="Napisz nam czego oczekujesz"
+          v-model="userData.message"
         ></textarea>
         <button class="btn__submit" @click.prevent="sendUserData">
           Wyślij
@@ -67,7 +75,7 @@
 </template>
 
 <script setup lang="ts">
-import {onBeforeMount, ref, watchEffect} from "vue";
+import { onBeforeMount, ref, watchEffect } from "vue";
 
 const ApiKey = "AIzaSyCNKSMO5i8RFdHYSIuuO0zVl0FCPPl5VfA";
 const playListId = "PLWfiGYuvhOCv11AUOF-CC_fY7Hktfq4Cl";
@@ -75,7 +83,7 @@ const playListData = ref([]);
 
 const fetchData = async () => {
   const response = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=150&playlistId=${playListId}&key=${ApiKey}`
+    `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=150&playlistId=${playListId}&key=${ApiKey}`
   );
   const data = await response.json();
   data.items.forEach((item: any) => {
@@ -96,7 +104,7 @@ const addSongToPlaylist = (event: { target: { checked: any; value: any } }) => {
     playlist.value.push(event.target.value);
   } else {
     playlist.value = playlist.value.filter(
-        (item: any) => item !== event.target.value
+      (item: any) => item !== event.target.value
     );
   }
 };
@@ -217,5 +225,66 @@ const togglePlaylistDone = () => {
   &:hover {
     color: #041c6c;
   }
+}
+
+.container__input {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.container__input:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.container__input input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container__input input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container__input .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 </style>
